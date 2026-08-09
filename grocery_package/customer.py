@@ -1,26 +1,23 @@
 class customer:
-    def __init__(self,name,phnum):
-        self.name=name
-        self.phnum=phnum
-        if len(str(self.phnum))==10:
-            print("your number is valid:")
-        else:
-            print("you enter the invalid number plz enter the corrct number:")
-    
-    def customerdetails(self):
-        userinput=int(input("Enter the your number:"))
+    def __init__(self, name, phnum):
+        self.name = name.strip()
+        self.phnum = str(phnum).strip()
 
-        if(userinput == self.phnum):
-            print("customer:",self.name)
-            print("customer phone number",self.phnum)
+    @staticmethod
+    def is_valid_phone(phnum):
+        return str(phnum).isdigit() and len(str(phnum)) == 10
+
+    def customerdetails(self):
+        userinput = input("Enter the customer phone number: ").strip()
+
+        if userinput == self.phnum:
+            print("customer:", self.name)
+            print("customer phone number:", self.phnum)
         else:
             print("customer is not found!!")
-    def customer(self):
-        return{
 
-        "name":self.name,
-        "phnum":self.phnum
+    def to_dict(self):
+        return {
+            "name": self.name,
+            "phnum": self.phnum
         }
-        
-
-        

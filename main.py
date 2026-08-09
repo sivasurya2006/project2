@@ -1,4 +1,5 @@
 from grocery_package.billing import billing
+from grocery_package.gui import start_gui
 
 
 def main():
@@ -14,7 +15,9 @@ def main():
         print("6. Show Bill")
         print("7. Save Bill")
         print("8. Load Bill")
-        print("9. Exit")
+        print("9. New Bill")
+        print("10. Open GUI")
+        print("11. Exit")
 
         choice = input("Enter your choice: ")
 
@@ -35,6 +38,11 @@ def main():
         elif choice == "8":
             bill.load_bill()
         elif choice == "9":
+            bill.reset_bill()
+            print("New bill started")
+        elif choice == "10":
+            start_gui()
+        elif choice == "11":
             print("Thank you! Visit again")
             break
         else:
